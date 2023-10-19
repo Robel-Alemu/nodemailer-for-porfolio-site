@@ -24,7 +24,7 @@ async function sendMail(req, res) {
       service: "gmail",
       auth: {
         type: "OAuth2",
-        user: "robela149@gmail.com",
+        user: "robela149@gmal.com",
         clientId: config.clientId,
         clientSecret: config.clientSecret,
         refreshToken: config.refreshToken,
@@ -41,9 +41,15 @@ async function sendMail(req, res) {
     };
 
     const result = await transport.sendMail(mailOptions);
-    res.send({ message: "sent" });
+    res
+      .status(200)
+      .send({ message: "Thank you, I will get back to you shortly!" });
     return result;
   } catch (error) {
+    res.status(400).send({
+      message:
+        "Message failed!, please try again or use the social medias below!",
+    });
     return error;
   }
 }

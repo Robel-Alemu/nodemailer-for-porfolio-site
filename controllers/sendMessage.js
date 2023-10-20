@@ -49,7 +49,6 @@ async function sendMail(req, res) {
   } catch (error) {
     res.status(400).send({
       status: 400,
-      error: error.message,
       message:
         "Message failed!, please try again or use the social medias below!",
     });

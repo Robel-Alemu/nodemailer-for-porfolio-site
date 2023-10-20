@@ -41,12 +41,14 @@ async function sendMail(req, res) {
     };
 
     const result = await transport.sendMail(mailOptions);
-    res
-      .status(200)
-      .send({ message: "Thank you, I will get back to you shortly!" });
+    res.status(200).send({
+      status: 200,
+      message: "Thank you, I will get back to you shortly!",
+    });
     return result;
   } catch (error) {
     res.status(400).send({
+      status: 400,
       error: error.message,
       message:
         "Message failed!, please try again or use the social medias below!",

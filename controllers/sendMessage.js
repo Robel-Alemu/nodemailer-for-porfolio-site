@@ -24,7 +24,7 @@ async function sendMail(req, res) {
       service: "gmail",
       auth: {
         type: "OAuth2",
-        user: "robela149@gmal.com",
+        user: "robela149@gmail.com",
         clientId: config.clientId,
         clientSecret: config.clientSecret,
         refreshToken: config.refreshToken,
